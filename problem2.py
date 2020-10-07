@@ -9,3 +9,6 @@ Note that the coordinates should be signed (positive or negative) floats
 """
 import math
 
+def distance(tuple1,tuple2):
+    
+
