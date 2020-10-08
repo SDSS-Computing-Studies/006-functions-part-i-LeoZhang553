@@ -15,6 +15,6 @@ def factors(a):
         if a%i == 0:
             List.append(i)
         i += 1
-    print(List)
-factors(12)
-factors(37)
+    return List
+print(factors(12))
+print(factors(37))
