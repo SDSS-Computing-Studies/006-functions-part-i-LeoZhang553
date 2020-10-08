@@ -33,7 +33,7 @@ output is "There is 1 solution, x=??"
 If there are two solutions:
 output is: "The solutions are x=?? and x=??"
 """
-
+import math
 def numSolutions(a,b,c):
     # inputs:
     # float a
@@ -42,6 +42,14 @@ def numSolutions(a,b,c):
     # Description:
     #
     # return 0, 1 or 2
+    d=b**2 - 4*a*c
+    if d < 0:
+        return 0
+    elif d == 0:
+        return 1
+    else:
+        return 2
+    
 
 def solutions(a,b,c):
     #inputs:
@@ -51,17 +59,51 @@ def solutions(a,b,c):
     # Desription:
     #
     # return tuple of float solution1 and float solution2
+    ListX=[]
+    x=numSolutions(a,b,c)
+    if x == 0:
+        return 0
+    elif x == 1:
+        x1 = (-b + math.sqrt(b*2 - 4 * a * c)) / (2*a)
+        x2 = (-b - math.sqrt(b*2 - 4 * a * c)) / (2*a)
+        ListX.append(x1)
+        ListX.append(x2)
+        return ListX[0]
+    elif x == 2:
+        x1 = (-b + math.sqrt(b*2 - 4 * a * c)) / (2*a)
+        x2 = (-b - math.sqrt(b*2 - 4 * a * c)) / (2*a)
+        ListX.append(x1)
+        ListX.append(x2)
+        return ListX[0], ListX[1]
 
-def title():
+def title(a,b,c):
     # inputs none
     # return str of All the title and instructions on one line
-
+    x=numSolutions(a,b,c)
+    if x == 0:
+        a='There are no real solutions'
+    elif x == 1:
+        a='There is 1 solution, x='
+    elif x == 2:
+        a="The solutions are"
+    return a
 
 def main():
     # Display Title and Instructions
-    print( title() )
+    print( title(1,2,1) )
     # Your code and function calls should go here
+    # do input 3 numbers
+    # check the number of solutions
 
-
+    # if solutions is > 0
+    # find the solutions
+    # display results
+    if x == 0:
+        print('There are no real solutions')
+    elif x == 1:
+        a=('There is 1 solution, x='
+    elif x == 2:
+        a="The solutions are"
+    return a
 
 main()
